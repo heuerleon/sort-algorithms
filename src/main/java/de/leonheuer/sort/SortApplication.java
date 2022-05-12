@@ -36,7 +36,7 @@ public class SortApplication {
         sortable.sort(algorithm);
         long timeTook = System.currentTimeMillis() - begin;
         if (!silent) System.out.println("Sorted list: " + sortable + "\n\n");
-        System.out.println("Took " + timeTook + "ms to finish. Used Algorithm: " + args[0]);
+        System.out.println("Took " + timeTook + "ms to finish. Used algorithm: " + args[0]);
     }
 
     private static int @NotNull [] generateList(int length, int max) {

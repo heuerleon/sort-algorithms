@@ -22,6 +22,8 @@ public class Sortable {
             case RADIX -> radixSort();
             case MERGE -> System.arraycopy(mergeSort(list), 0, list, 0, length);
             case HEAP -> heapSort();
+            case JAVA_QUICK -> Arrays.sort(list);
+            case BUBBLE -> bubbleSort();
         }
     }
 
@@ -162,6 +164,17 @@ public class Sortable {
             index++;
         }
         return newList;
+    }
+
+    /**
+     * Sorts the integer array by using the bubble sort algorithm
+     */
+    private void bubbleSort() {
+        for (int i = length; i > 1; i--) {
+            for (int j = 0; j < length - 1; j++) {
+                if (list[j] > list[j + 1]) swap(j, j + 1);
+            }
+        }
     }
 
     /**

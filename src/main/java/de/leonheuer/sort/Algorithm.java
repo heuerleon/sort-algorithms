@@ -7,7 +7,9 @@ public enum Algorithm {
     QUICK,
     RADIX,
     MERGE,
-    HEAP;
+    HEAP,
+    JAVA_QUICK,
+    BUBBLE;
 
     public static String getAlgorithms(String delimiter) {
         StringJoiner algorithms = new StringJoiner(delimiter);
