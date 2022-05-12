@@ -5,8 +5,8 @@ import org.jetbrains.annotations.NotNull;
 public class SortApplication {
 
     public static void main(String @NotNull [] args) {
-        if (args.length != 3) {
-            System.out.println("Missing arguments. <" + Algorithm.getAlgorithms("|") + "> <array length> <max integer>");
+        if (args.length < 3) {
+            System.out.println("Missing arguments. <" + Algorithm.getAlgorithms("|") + "> <array length> <max integer> [--silent]");
             return;
         }
 
@@ -28,12 +28,14 @@ public class SortApplication {
             return;
         }
 
+        boolean silent = args.length >= 4 && args[3].equalsIgnoreCase("--silent");
+
         Sortable sortable = new Sortable(generateList(length, max));
-        System.out.println("Generated list: " + sortable + "\n\n");
+        if (!silent) System.out.println("Generated list: " + sortable + "\n\n");
         long begin = System.currentTimeMillis();
         sortable.sort(algorithm);
         long timeTook = System.currentTimeMillis() - begin;
-        System.out.println("Sorted list: " + sortable + "\n\n");
+        if (!silent) System.out.println("Sorted list: " + sortable + "\n\n");
         System.out.println("Took " + timeTook + "ms to finish. Used Algorithm: " + args[0]);
     }
 
